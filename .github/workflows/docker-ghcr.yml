@@ -40,6 +40,9 @@ jobs:
           r="${GITHUB_REPOSITORY,,}"
           echo "image=$r" >> "$GITHUB_OUTPUT"
 
+      - name: Set up QEMU (build linux/arm64 on GitHub’s amd64 runners)
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -82,7 +85,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64
+          # Multi-arch manifest: Apple Silicon / ARM64 servers + Intel/amd64
+          platforms: linux/amd64,linux/arm64
 
       - name: Image digest
         if: success() && github.event_name != 'pull_request'

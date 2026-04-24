@@ -4,7 +4,7 @@
 # Override image tag: TAG=main docker compose up
 services:
   app:
-    image: ghcr.io/adenmgb/256dle:${TAG:-latest}
+    image: ghcr.io/adenmgb/256dle:${TAG:-main}
     container_name: 256dle
     ports:
       - "${PORT:-3000}:3000"

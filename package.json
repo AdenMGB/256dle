@@ -2,6 +2,7 @@
   "name": "256dle",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@10.0.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,7 +11,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/ui": "^4.6.1",
     "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.4",
     "vue": "^3.5.32",
     "vue-router": "^5.0.4"
   }

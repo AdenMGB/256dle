@@ -1,0 +1,25 @@
+# Dependencies & build
+node_modules
+.pnpm-store
+.output
+.nuxt
+.cache
+dist
+*.log
+
+# Git & IDE
+.git
+.github
+.vscode
+.idea
+*.md
+!README.md
+
+# Env & misc
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+coverage
+*.tgz

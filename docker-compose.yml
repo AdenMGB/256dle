@@ -1,0 +1,16 @@
+# Run the published app from GitHub Container Registry.
+# Login once if the package is private: echo $GITHUB_TOKEN | docker login ghcr.io -u AdenMGB --password-stdin
+#
+# Override image tag: TAG=main docker compose up
+services:
+  app:
+    image: ghcr.io/adenmgb/256dle:${TAG:-latest}
+    container_name: 256dle
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      HOST: 0.0.0.0
+      NITRO_HOST: 0.0.0.0
+      NITRO_PORT: 3000
+      PORT: 3000
+    restart: unless-stopped
